@@ -13,8 +13,7 @@ Template to start developing Laravel with docker
 5. Exit from the container bash terminal.
 6. Run `` make composer-update ``
 7. Change Directory into the App folder and run `` php artisan serve ``
-8. Change back to the root directory.
-9. You should be able to start Laravel.
+8. You should be able to start Laravel.
 
 # Make Commands
 1. `` make down `` set docker to stop
