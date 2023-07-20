@@ -37,7 +37,9 @@ Template to start developing Laravel with docker
 
 # Make Commands
 1. `` make stop `` set docker to stop
-4. `` make up `` set docker to up
+2. `` make up `` set docker to up
+3. `` make generate `` php artisan key:generate
+4. `` make optimize `` php artisan optimize
 
 # Contributing
 Pull this repository add your changes.
