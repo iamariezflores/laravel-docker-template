@@ -1,21 +1,18 @@
-config:
-	@make build
-	@make up
+up:
+	docker-compose up
 
-build:
-	docker-compose build --no-cache --force-rm
-
-down:
+stop:
 	docker-compose stop
 
-up:
-	docker-compose up -d
+generate:
+	docker-compose exec app php artisan key:generate
+
+optimize:
+	docker-compose exec app php artisan optimize
 
 composer-update:
-	docker exec laravel-docker bash -c "composer update"
+	docker run --rm -v ${pwd}:/app composer update
 
-migrate:
-	docker exec laravel-docker bash -c "php artisan migrate"
+composer-upgrade:
+	docker run --rm -v ${pwd}:/app composer upgrade
 
-seed:
-	docker exec laravel-docker bash -c "php artisan db:seed"
