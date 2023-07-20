@@ -6,19 +6,37 @@ Template to start developing Laravel with docker
 2. Make
 
 # Getting Started.
-1. Clone this Repo.
-2. Run `` make config ``
-3. Run `` docker exec -it laravel-docker bash ``
-4. In the container bash terminal run `` composer create-project laravel/laravel . ``
-5. Exit from the container bash terminal.
-6. Run `` make composer-update ``
-7. Change Directory into the App folder and run `` php artisan serve ``
-8. You should be able to start Laravel.
+1. Clone the latest laravel ``git clone https://github.com/laravel/laravel.git . ``
+2. Rename or Copy .env.example to .env ``mv .env.example .env``
+3. Fill in the .env
+   > DB_CONNECTION=mysql
+   > 
+   > DB_HOST=database
+   >
+   > DB_PORT=3306
+   >
+   > DB_DATABASE=laravel
+   >
+   > DB_USERNAME=laravel_user
+   >
+   > DB_PASSWORD=laravel_password
+   >
+   > MAIL_MAILER=smtp
+   >
+   > MAIL_HOST=mailhog
+
+4. Clone this repository and copy the contents to the project directory
+5. If in windows run
+     ``docker run --rm -v ${pwd}:/app composer install``
+   otherwise run
+     ``docker run --rm -v “$(pwd)”:/app composer install``
+6. In the terminal run: ``make up``
+7. Open a new terminal, and then type ``make generate``
+9. On the same terminal type: ``make optimize``
+10. Finally open your browser to ``http://localhost``
 
 # Make Commands
-1. `` make down `` set docker to stop
-2. `` make migrate `` execute php artisan migrate
-3. `` make seed `` execute php artisan db:seed
+1. `` make stop `` set docker to stop
 4. `` make up `` set docker to up
 
 # Contributing
